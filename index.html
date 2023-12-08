@@ -26,16 +26,81 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status"></div>
+    <main class="main" id="top">
+    <!-- Preloader ==================================-->
+    <!-- <div class="preloader p-0" id="preloader">
+        <div class="loader d-flex flex-column align-items-center"><img src="img/egg.gif" alt="" /></div>
+    </div> -->
+
+    <!-- Your modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" aria-label="Close" id="closeModal"></button>
+            </div>
+            <div class="modal-body">
+              <a href="#"><img src="img/Foodzso_Reel_competition.png" alt="reel"></a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="registerBtn">Register</button>
+                <button type="button" class="btn btn-danger" id="closeBtn">Close</button>        
+            </div>
+          </div>
+        </div>
     </div>
+    <style>
+        /* Additional CSS for modal and image */
+        .modal-body img {
+          max-width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-height: 80vh; /* Adjust the height as needed */
+          width: auto;
+          margin: 0 auto; /* Center the image horizontally */
+          display: block; /* Ensure it's a block element */
+
+
+        }
+        .modal-xl {
+          max-width: 50%; /* Adjust as needed */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: -10%;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+         
+        }
+        @media (max-width: 768px) { /* Adjust the max-width as needed */
+            .modal-dialog {
+               max-width: 90%;
+               max-height: 90%; /* Adjust the maximum width of the modal for mobile devices */
+               margin: 0 auto; /* Center the modal horizontally */
+            }
+
+         #modalImage {
+          max-width: 500%;
+          max-height: 100vh; /* Adjust the height as needed */
+          width: auto;
+          height: auto;
+          margin: 0 auto; /* Center the image horizontally */
+          display: block; /* Ensure it's a block element */
+          }
+        }
+    </style>
+    <!-- ============================================-->
+    <a class="bottom-to-top rounded-soft" href="#top" data-fancyscroll><span class="fas fa-angle-up lg" data-fa-transform="down-2"></span></a>
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div> -->
     <!-- Spinner End -->
 
 
@@ -58,7 +123,7 @@
                 <a class="text-body ms-3" href="https://www.facebook.com/foodzso/"><i class="fab fa-facebook-f"></i></a>
                 <a class="text-body ms-3" href="https://www.instagram.com/foodzso/"><i class="fab fa-instagram"></i></a>
                 <a class="text-body ms-3" href="https://www.threads.net/@foodzso"><i class="fab fa-twitter"></i></a>
-                <!-- <a href="https://www.threads.net/@foodzso">
+                 <!-- <a href="https://www.threads.net/@foodzso">
                     <img src="img/threads.png" style="max-width: 20px; height: auto;">
                 </a> -->
             </div>
@@ -88,7 +153,7 @@
                     </div> -->
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <div class="d-none d-lg-flex ms-2">
+                <!-- <div class="d-none d-lg-flex ms-2">
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-search text-body"></small>
                     </a>
@@ -98,11 +163,89 @@
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-shopping-bag text-body"></small>
                     </a>
-                </div>
+                </div> -->
             </div>
+            <ul class="navbar-nav ml-auto my-3 my-lg-0">
+                <li class="nav-item"><button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#reservation"><span class="d-none d-xl-inline">Make </span>Reservation</button></li>
+            </ul>
         </nav>
     </div>
     <!-- Navbar End -->
+    <div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content border-0">
+            <div class="bg-holder rounded-soft" style="background-image:url(img/pngfind.png);background-size:40%;background-position:top right; transform:none;"></div>
+            <!--/.bg-holder-->
+            <form class="zform modal-body pb-0" action="js/reserve.js" method="POST"><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <div class="row">
+                <div class="border border-primary border-2x ml-5 rounded-soft"></div>
+                <div class="col-8">
+                  <h5 class="font-weight-bold mt-2">Make <br>A<br> Reservation</h5>
+                </div>
+              </div>
+              <div class="row mt-4 ml-3 form-group">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                  <div class="input-with-icon"><select class="form-control text-base text-500 pl-4">
+                      <option>Time</option>
+                      <option>11:30 AM</option>
+                      <option>12:00 PM</option>
+                      <option>12:30 PM</option>
+                      <option>01:00 PM</option>
+                      <option>01:30 PM</option>
+                      <option>02:00 PM</option>
+                      <option>02:30 PM</option>
+                      <option>03:00 PM</option>
+                      <option>06:00 PM</option>
+                      <option>06:30 PM</option>
+                      <option>07:00 PM</option>
+                      <option>07:30 PM</option>
+                      <option>08:00 PM</option>
+                      <option>08:30 PM</option>
+                      <option>09:00 PM</option>
+                      <option>09:30 PM</option>
+                      <option>10:00 PM</option>
+                      <option>10:30 PM</option>
+                      <option>11:00 PM</option>
+                      <option>11:30 PM</option>
+                    </select><span class="position-absolute far fa-clock text-400 icon modal-time-icon"></span></div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="input-with-icon"><input class="form-control icon-input" type="date" placeholder="DD/MM/YYYY" aria-label="date"><span class="position-absolute fas fa-calendar-day text-400 icon"></span></div>
+                </div>
+              </div>
+              <div class="row form-group ml-3">
+                <div class="col-lg-6 mb-3 mb-lg-0"><input class="form-control" type="text" placeholder="Name"></div>
+                <div class="col-lg-6"><input class="form-control" type="tel" placeholder="Phone"></div>
+              </div>
+              <div class="row form-group ml-3">
+                <div class="col"><select class="form-control text-base text-500">
+                    <option>Person</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>10+</option>
+                  </select></div>
+              </div>
+              <div class="row form-group ml-3">
+                <div class="col"><input class="form-control" type="email" placeholder="Email"></div>
+              </div>
+              <div class="row justify-content-center bg-primary rounded-bottom" style="margin-left:-17px;margin-right:-17px;margin-bottom:-1px">
+                <div class="col-10 pt-3 pb-4">
+                  <p class="text-900">✨ Step into Foodzso Filmy Dhaba and let our flavors take you on a cosmic journey! Each dish is a shining star in our galaxy of taste. 🌟🍽️</p><input class="btn btn-light btn-block text-center mt-2" type="submit" value="Submit">
+                </div>
+              </div>
+              <div class="zform-feedback"></div>
+            </form>
+          </div>
+        </div>
+      </div>
 
 
     <!-- Carousel Start -->
@@ -115,9 +258,9 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <!-- <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1> -->
-                                    <!-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Foods</a>
-                                    <a href="" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a> -->
+                                    <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Order Online</a>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara/book" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Dine in</a>
                                 </div>
                             </div>
                         </div>
@@ -129,9 +272,9 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <!-- <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1> -->
-                                    <!-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
-                                    <a href="" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a> -->
+                                    <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Order Online</a>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara/book" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Dine in</a>
                                 </div>
                             </div>
                         </div>
@@ -143,9 +286,9 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <!-- <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1> -->
-                                    <!-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
-                                    <a href="" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a> -->
+                                    <h1 class="display-2 mb-5 animated slideInDown" style="color: #3CB815;" >Good Food Good Mood </h1>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Order Online</a>
+                                    <a href="https://www.zomato.com/mumbai/foodzso-filmy-dhaba-nalasopara/book" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Dine in</a>
                                 </div>
                             </div>
                         </div>
@@ -999,8 +1142,8 @@
                     <!-- <h1 class="fw-bold text-primary mb-4">F<span class="text-secondary">oo</span>dzso</h1> -->
                     <p>Welcome to Foodzso Filmy Dhaba, where we blend the magic of Bollywood with the delight of delectable cuisine.</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://www.instagram.com/foodzso/"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://www.facebook.com/foodzso/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://www.facebook.com/foodzso/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="ttps://www.facebook.com/foodzso/"><i class="fab fa-facebook-f"></i></a>
                         <!-- <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://www.threads.net/@foodzso"><i class="fab fa-twitter"></i></a> -->
                         <a href="https://www.threads.net/@foodzso">
                             <img src="img/threads.png" style="max-width: 40px; height: auto;">
@@ -1049,9 +1192,23 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+ </main>
 
 
     <!-- JavaScript Libraries -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="assets/lib/is/is.min.js"></script>
+    <script src="assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <!-- <script src="assets/lib/loaders.css/loaders.css.js"></script> -->
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script src="assets/lib/fancybox/jquery.fancybox.min.js"></script>
+    <script src="assets/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/lib/fancy-tab/fancy-tab.min.js"></script>
+    <!-- new js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -1059,12 +1216,86 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+    <script src="lib/loaders.css/loaders.css.js"></script>
     <script>
           var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":90,"marginLeft":20,"marginRight":20,"btnPosition":"right","whatsAppNumber":"919322981267","welcomeMessage":"Hello ! I have visited your Website and I had a Enquiry for your restaurant.","zIndex":999999,"btnColorScheme":"light"};
           window.onload = () => {
             _waEmbed(wa_btnSetting);
           };
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the preloader image is already cached in the browser
+            const preloaderImg = new Image();
+            preloaderImg.src = "img/egg.gif";
+    
+            if (preloaderImg.complete) {
+                // If the image is already loaded (cached), show preloader immediately
+                document.getElementById("preloader").classList.add("show");
+            } else {
+                // If the image is not yet loaded (first time), show preloader after it's loaded
+                preloaderImg.onload = function() {
+                    document.getElementById("preloader").classList.add("show");
+                };
+            }
+    
+            setTimeout(function() {
+                document.getElementById("preloader").classList.remove("show");
+                // This is where you might reveal your main page content
+            }, 3000); // 1000 milliseconds = 1 second
+        });
+    </script>
+    
+    <!-- <script>
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+          }, 5000); 
+        });
+      </script> -->
+      <!-- <script>
+        // Function to show the modal after a delay
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('myModal').style.display = 'block';
+            document.getElementById('main-content').style.display = 'block';
+          }, 5000); // Change 3000 to the delay time in milliseconds (3 seconds in this case)
+      
+          // Register button functionality to redirect to the specified link
+          var registerButton = document.getElementById('registerBtn');
+          registerButton.onclick = function () {
+            window.location.href = 'https://bit.ly/foodzsochannel';
+          };
+        });
+      </script> -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+
+         // Show modal after a delay
+          setTimeout(function() {
+             myModal.show();
+            }, 3000); // Change the delay time if needed
+
+         // Close modal when close button (btn-close) is clicked
+          document.getElementById('closeModal').addEventListener('click', function() {
+             myModal.hide();
+            });
+
+         // Close modal when "Close" button is clicked
+          document.getElementById('closeBtn').addEventListener('click', function() {
+              myModal.hide();
+            });
+
+          // Register button functionality to redirect to the specified link
+          document.getElementById('registerBtn').addEventListener('click', function() {
+             window.location.href = 'https://bit.ly/foodzsochannel';
+            });
+        });
+      </script>
+      
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
